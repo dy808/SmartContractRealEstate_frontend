@@ -3,8 +3,8 @@ import { storage, db } from '../Config/Config'
 
 export const AddProducts = () => {
 
-    const [productName, setProductName] = useState('');
-    const [productPrice, setProductPrice] = useState(0);
+    const [Adress, setAdressName] = useState('');
+    const [Price, setProductPrice] = useState(0);
     const [productImg, setProductImg] = useState(null);
     const [error, setError] = useState('');
 
@@ -32,12 +32,12 @@ export const AddProducts = () => {
         }, err => setError(err.message)
             , () => {
                 storage.ref('product-images').child(productImg.name).getDownloadURL().then(url => {
-                    db.collection('Products').add({
-                        ProductName: productName,
-                        ProductPrice: Number(productPrice),
-                        ProductImg: url
+                    db.collection('NTF').add({
+                        Adress: Adress,
+                        Price: Number(Price),
+                        productImg: url
                     }).then(() => {
-                        setProductName('');
+                        setAdressName('');
                         setProductPrice(0)
                         setProductImg('');
                         setError('');
@@ -50,23 +50,26 @@ export const AddProducts = () => {
     return (
         <div className='container'>
             <br />
-            <h2>ADD PRODUCTS</h2>
+            <h2>ADD HOUSE</h2>
             <hr />
             <form autoComplete="off" className='form-group' onSubmit={addProduct}>
                 <label htmlFor="product-name">Product Name</label>
                 <input type="text" className='form-control' required
-                    onChange={(e) => setProductName(e.target.value)} value={productName} />
+                    onChange={(e) => setAdressName(e.target.value)} value={Adress} />
                 <br />
                 <label htmlFor="product-price">Product Price</label>
                 <input type="number" className='form-control' required
-                    onChange={(e) => setProductPrice(e.target.value)} value={productPrice} />
+                    onChange={(e) => setProductPrice(e.target.value)} value={Price} />
                 <br />
+                
                 <label htmlFor="product-img">Product Image</label>
                 <input type="file" className='form-control' id="file" required
                     onChange={productImgHandler} />
                 <br />
+
                 <button type="submit" className='btn btn-success btn-md mybtn'>ADD</button>
             </form>
+            {console.log(Adress,Price, productImg)}
             {error && <span className='error-msg'>{error}</span>}
         </div>
     )

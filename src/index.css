@@ -99,12 +99,49 @@ h1 {
     border-bottom: 1px solid #e4e4e4;
 }
 
+
+.Welcome {
+
+    width:80%;
+    background-image:url("../src/images/present.jpg");
+    background-repeat:no-repeat;
+    background-position: center center;
+    height:500px;
+    border-radius:100px;
+    margin: auto;
+    margin-top:5%;
+    justify-content: center;
+}
 @media(max-width: 768px) {
     h1 {
         text-align: center;
         padding: 10px;
     }
 }
+
+.btn.btn-success.btn-md {
+    background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  width:15%;
+  position:absolute;
+  bottom:0;
+  margin-bottom:4%;
+}
+
+.btn.btn-success.btn-md:hover {
+    opacity: 1; /* Green */
+ 
+  }
 
 .products-container {
     display: flex;
@@ -153,7 +190,7 @@ h1 {
 }
 
 .products-container .product-card .addcart-btn {
-    background-color: #f57224;
+    background-color: #3a940df7;
     color: #fff;
     border: hidden;
     cursor: pointer;
@@ -193,8 +230,8 @@ h1 {
 }
 
 .cart-container .cart-card .cart-img {
-    width: 150px;
-    height: 120px;
+    width: 50px;
+    height: 70px;
 }
 
 @media(max-width: 768px) {
@@ -276,7 +313,7 @@ h1 {
 }
 
 .cart-summary .cart-summary-heading {
-    border-bottom: 1px solid #f57224;
+    border-bottom: 1px solid #479f09;
 }
 
 .cart-summary .cart-summary-price {
@@ -302,5 +339,5 @@ h1 {
 }
 
 .success-msg .home-link {
-    color: #fff;
+    color: rgb(237, 227, 38);
 }

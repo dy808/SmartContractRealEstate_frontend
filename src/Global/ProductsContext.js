@@ -9,18 +9,21 @@ export class ProductsContextProvider extends React.Component {
         products: []
     }
 
+   
+
     componentDidMount() {
 
         const prevProducts = this.state.products;
-        db.collection('Products').onSnapshot(snapshot => {
+        db.collection('NTF').onSnapshot(snapshot => {
             let changes = snapshot.docChanges();
             changes.forEach(change => {
                 if (change.type === 'added') {
                     prevProducts.push({
                         ProductID: change.doc.id,
-                        ProductName: change.doc.data().ProductName,
-                        ProductPrice: change.doc.data().ProductPrice,
-                        ProductImg: change.doc.data().ProductImg
+                        Adress: change.doc.data().Adress,
+                        Price: change.doc.data().Price,
+                        productImg:change.doc.data().productImg
+                      
                     })
                 }
                 this.setState({
@@ -30,6 +33,7 @@ export class ProductsContextProvider extends React.Component {
         })
 
     }
+    
     render() {
         return (
             <ProductsContext.Provider value={{ products: [...this.state.products] }}>
