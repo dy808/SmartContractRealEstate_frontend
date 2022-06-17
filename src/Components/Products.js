@@ -2,11 +2,17 @@
 import React, { Component, useContext } from "react";
 import { ProductsContext } from '../Global/ProductsContext'
 import { CartContext } from '../Global/CartContext'
-import {property_manager} from "../contracts/property_manager.json";
-import {Property} from "../contracts/Property.json";
+/*
+import {property_manager} from "../contracts/property_manager.sol";
+import {Property} from "../contracts/Property.sol";
 import getWeb3 from "./getWeb3";
-export class Products extends Component  {
-     state = {cost: 0, propertyName: "exampleproperty1", loaded:false};
+
+*/
+export const Products =  () => {
+  const { products } = useContext(ProductsContext);
+  console.log(products);
+  const { dispatch } = useContext(CartContext);
+    /* state = {cost: 0, propertyName: "exampleproperty1", loaded:false};
 
     componentDidMount = async () => {
       try {
@@ -85,9 +91,9 @@ export class Products extends Component  {
 
   
     render() {
-        const { products } = useContext(ProductsContext);
-        console.log(products);
-        const { dispatch } = useContext(CartContext);
+     
+
+        */
     return (
         <>
             {products.length !== 0 }
@@ -111,5 +117,5 @@ export class Products extends Component  {
         </>
     )
                 }
-}
+
 
